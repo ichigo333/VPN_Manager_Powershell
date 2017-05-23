@@ -6,7 +6,7 @@ Break
 
 . "C:\Users\alex_media\Desktop\getip.ps1"
 
-$ip_local = ""
+$ip_local = "//your public IP goes here"
 $script:ip_previous = $null
 
 Function SetPreviousIP {
@@ -62,6 +62,7 @@ While ($true) {
 	}
 	else {
 		Wait
+		GetTotalBytesTransfered
 	}
 	Write-Host ""
 }

@@ -61,3 +61,13 @@ Function LogProcessKillInfo {
 	Log " current time: $timestamp"
 	Log "-------------------------"
 }
+
+Function GetTotalBytesTransfered {
+	$sent_bytes = Get-NetAdapterStatistics | Select-Object Name, SentBytes | Where-Object {$_.Name -Match "Ethernet 2"} | select -ExpandProperty "SentBytes"
+	$received_bytes = Get-NetAdapterStatistics | Select-Object Name, ReceivedBytes | Where-Object {$_.Name -Match "Ethernet 2"} | select -ExpandProperty "ReceivedBytes"
+ 
+	$total_bytes = $sent_bytes + $received_bytes
+	$formated_string = "{0:N0}" -f $total_bytes
+	Log "total bytes: $formated_string"
+
+}
