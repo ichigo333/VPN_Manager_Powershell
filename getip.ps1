@@ -49,7 +49,7 @@ Function Log {
 
 Function LogFileOnly {
    Param ([string]$logstring)
-   Add-content $Logfile -value $logstring
+   Add-content $Logfile -value $logstring -NoNewline
 }
 
 Function LogProcessKillInfo {
@@ -68,6 +68,6 @@ Function GetTotalBytesTransfered {
  
 	$total_bytes = $sent_bytes + $received_bytes
 	$formated_string = "{0:N0}" -f $total_bytes
-	Log "total bytes: $formated_string"
+	Log " transfer: $formated_string"
 
 }
