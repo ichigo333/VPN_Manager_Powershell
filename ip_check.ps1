@@ -64,5 +64,4 @@ While ($true) {
 		Wait
 		GetTotalBytesTransfered
 	}
-	Write-Host ""
 }
